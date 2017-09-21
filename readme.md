@@ -10,17 +10,17 @@ First, create compute targets for running the parameter sweep: Docker and option
 
 Prepare Docker image. Note that this step may take several minutes:
 
-```azurecli
+```bash
 $ az ml experiment prepare -c docker
 ```
 
 Create HDInsight Spark Cluster using [these instructions](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql). Attach it as compute target, and then prepare it by using:
 
-```azurecli
+```bash
 $ az ml computetarget attach --name <myhdi> --address <myhdi-ssh.azurehdinsight.net> --username <sshusername> --password <sshpwd> --type cluster
 ```
 
-```azurecli
+```bash
 $ az ml experiment prepare -c <myhdi>
 ```
 
@@ -28,7 +28,7 @@ $ az ml experiment prepare -c <myhdi>
 
 This project is configured to install spark-sklearn package when running on Docker or HDInsight Spark cluster. To view how this is done, or to change or add dependencies, edit the __aml_config/Spark_dependencies.yml__ file.
 
-```
+```yaml
 configuration: {}
 repositories:
   - "https://mmlspark.azureedge.net/maven"
@@ -48,18 +48,18 @@ packages:
 
 Local run using scikit-learn:
 
-```azurecli
+```bash
 $ az ml experiment submit -c local .\sweep_sklearn.py
 ```
 
 Docker run using spark-sklearn
 
-```azurecli
+```bash
 $ az ml experiment submit -c docker .\sweep_spark.py
 ```
 
 HDInsight Spark run using spark-sklearn:
 
-```azurecli
+```bash
 $ az ml experiment submit -c <myhdi> .\sweep_spark.py
 ```
