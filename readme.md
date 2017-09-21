@@ -14,10 +14,14 @@ Prepare Docker image. Note that this step may take several minutes:
 $ az ml experiment prepare -c docker
 ```
 
-Create HDInsight Spark Cluster using [these instructions](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql), and attach it as compute target by using:
+Create HDInsight Spark Cluster using [these instructions](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql). Attach it as compute target, and then prepare it by using:
 
 ```azurecli
-$ az ml computecontext attach --name <myhdi> --address <ssh-myhdi.azurehdinsight.net> --username <sshusername> --password <sshpwd> --type cluster
+$ az ml computetarget attach --name <myhdi> --address <myhdi-ssh.azurehdinsight.net> --username <sshusername> --password <sshpwd> --type cluster
+```
+
+```azurecli
+$ az ml experiment prepare -c <myhdi>
 ```
 
 ## Add Spark Package Dependencies
