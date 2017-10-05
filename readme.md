@@ -39,7 +39,7 @@ packages:
     version: "0.7.91"
   - group: "databricks"
     artifact: "spark-sklearn"
-    version: "0.2.0"
+    version: "0.2.3"
 ```
 
 ## Run the Model
