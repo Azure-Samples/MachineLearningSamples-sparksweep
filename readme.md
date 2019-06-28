@@ -1,5 +1,7 @@
 # Parameter Sweep on Spark
 
+> **NOTE** This content is no longer maintained. Visit the [Azure Machine Learning Notebook](https://github.com/Azure/MachineLearningNotebooks) project for sample Jupyter notebooks for ML and deep learning with Azure Machine Learning.
+
 This sample shows how to leverage the [_spark-sklearn_ package](https://spark-packages.org/package/databricks/spark-sklearn) in parallel to perform parameter sweep on Spark worker nodes, and compare that with the regular parameter sweep performed in scikit-learn.
 
 It also shows how to add [published Spark packages](https://spark-packages.org/) to your project using the _Spark_dependencies.yml_ file in the _aml_config_ folder.
